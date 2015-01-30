@@ -13,6 +13,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/trNgGrid/release/trNgGrid.min.css" />
+      <link rel="stylesheet" href="bower_components/ng-table/ng-table.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -54,14 +56,24 @@
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/trNgGrid/release/trNgGrid.min.js"></script>
+      <script src="bower_components/ng-table/ng-table.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/Api/Api.service.js"></script>
+          <script src="app/TableFactory/TableFactory.service.js"></script>
+          <script src="app/land_units/land_units.detail.controller.js"></script>
+          <script src="app/land_units/land_units.js"></script>
+          <script src="app/land_units/land_units.list.controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/main_units/main_units.detail.controller.js"></script>
+          <script src="app/main_units/main_units.js"></script>
+          <script src="app/main_units/main_units.list.controller.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->

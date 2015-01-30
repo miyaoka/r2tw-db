@@ -1,0 +1,81 @@
+<div class="col-md-12">
+
+
+  <h1>landUnit detail</h1>
+  <a ui-sref="^.list">←landUnit list</a>
+
+  <table class="table table-bordered table-condensed info">
+    <thead>
+      <tr>
+        <td>unit</td>
+        <td>land_unit</td>
+        <td>naval_unit</td>
+        <td>is_naval</td>
+        <td>num_men</td>
+        <td>recruitment_cost</td>
+        <td>upkeep_cost</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="mu in mainUnits">
+        <td><a ui-sref="main_units.detail({id: mu._id})">{{mu.unit}}</a></td>
+        <td>{{mu.land_unit}}</td>
+        <td>{{mu.naval_unit}}</td>
+        <td>{{mu.is_naval}}</td>
+        <td>{{mu.num_men}}</td>
+        <td>{{mu.recruitment_cost}}</td>
+        <td>{{mu.upkeep_cost}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered table-condensed info">
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>{{landUnit._id}}</td>
+      </tr>
+
+      <tr>
+        <td>category</td>
+        <td>{{landUnit.category}}</td>
+      </tr>
+      <tr>
+        <td>class</td>
+        <td>{{landUnit.class}}</td>
+      </tr>
+      <tr>
+        <td>armour</td>
+        <td>{{landUnit.armour}}</td>
+      </tr>
+      <tr>
+        <td>morale</td>
+        <td>{{landUnit.morale}}</td>
+      </tr>
+              <td data-title="'man_entity'" sortable="'man_entity'">{{item.man_entity}}</td>
+              <td data-title="'bonus_hit_points'" sortable="'bonus_hit_points'">{{item.bonus_hit_points}}</td>
+
+              <td data-title="'charge_bonus'" sortable="'charge_bonus'">{{item.charge_bonus}}</td>
+              <td data-title="'melee_attack'" sortable="'melee_attack'">{{item.melee_attack}}</td>
+              <td data-title="'melee_defence'" sortable="'melee_defence'">{{item.melee_defence}}</td>
+
+              <td data-title="'mount'" sortable="'mount'">{{item.mount}}</td>
+              <td data-title="'dismounted_charge_bonus'" sortable="'dismounted_charge_bonus'">{{item.dismounted_charge_bonus}}</td>
+              <td data-title="'dismounted_melee_attack'" sortable="'dismounted_melee_attack'">{{item.dismounted_melee_attack}}</td>
+              <td data-title="'dismounted_melee_defence'" sortable="'dismounted_melee_defence'">{{item.dismounted_melee_defence}}</td>
+
+
+              <td data-title="'primary_melee_weapon'" sortable="'primary_melee_weapon'">{{item.primary_melee_weapon}}</td>
+
+              <td data-title="'primary_missile_weapon'" sortable="'primary_missile_weapon'">{{item.primary_missile_weapon}}</td>
+              <td data-title="'accuracy'" sortable="'accuracy'">{{item.accuracy}}</td>
+              <td data-title="'ammo'" sortable="'ammo'">{{item.ammo}}</td>
+              <td data-title="'reload'" sortable="'reload'">{{item.reload}}</td>
+
+
+              <td data-title="'shield'" sortable="'shield'">{{item.shield}}</td>
+              <td data-title="'melee_defence'" sortable="'melee_defence'">{{item.melee_defence}}</td>
+              <td data-title="'melee_defence'" sortable="'melee_defence'">{{item.melee_defence}}</td>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<div class="col-md-12">
+  <h1 class="page-header">MainUnits:{{mainUnitsTable.total()}}</h1>
+  <table ng-table="mainUnitsTable" class="table">
+    <tr ng-repeat="item in $data">
+      <td data-title="'main_unit'" sortable="'unit'"><a ui-sref="^.detail({id:item._id})">{{item.unit}}</td>
+      <td data-title="'land_unit'" sortable="'land_unit'">{{item.land_unit}}</td>
+      <td data-title="'num_men'" sortable="'num_men'">{{item.num_men}}</td>
+      <td data-title="'recruitment_cost'" sortable="'recruitment_cost'">{{item.recruitment_cost}}</td>
+      <td data-title="'upkeep_cost'" sortable="'upkeep_cost'">{{item.upkeep_cost}}</td>
+    </tr>
+  </table>
+</div>
+
+<ui-view/>

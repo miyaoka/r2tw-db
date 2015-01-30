@@ -5,7 +5,7 @@ var MainUnit = require('./main_unit.model');
 
 // Get list of main_units
 exports.index = function(req, res) {
-  MainUnit.find(function (err, main_units) {
+  MainUnit.find(req.query, function (err, main_units) {
     if(err) { return handleError(res, err); }
     return res.json(200, main_units);
   });
