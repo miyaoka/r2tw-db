@@ -1,4 +1,176 @@
-<h3>Detail</h3>
+<h3>Faction: {{faction.screen_name}}</h3>
+<h4>military_group: {{faction.military_group}} ({{unitsTable.total()}})</h4>
+<div class="well">
 
-factions.detail.html
-{{factionId}}
+  <h4>unit types</h4>
+  <form class="form-inline">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="filter.inf_ranged"/>
+        inf_ranged
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="filter.inf_melee"/>
+        inf_melee
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="filter.cavalry"/>
+        cavalry
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="filter.elephants"/>
+        elephants
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="filter.artillery"/>
+        artillery
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="filter.naval"/>
+        naval
+      </label>
+    </div>
+  </form>
+
+  <h4><a href="#" tooltip-placement="left" tooltip="tip">columns detail</a></h4>
+  <form class="form-inline">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="column.armour"/>
+        armour
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="column.weapon"/>
+        weapon
+      </label>
+    </div>
+  </form>
+</div>
+
+<table ng-table="unitsTable" class="main-units" id="main-units">
+  <tr ng-repeat="item in $data">
+    <td data-title="'main_unit'" sortable="'unit'" class="main-unit"><a ui-sref="^.detail({id:item._id})" >{{item.unit}}</td>
+    <td data-title="'land_unit'" sortable="'land_unit'">{{item.land_unit}}</td>
+
+      <td data-title="'category'" sortable="'lu.category'">{{item.lu.category}}</td>
+      <td data-title="'class'" sortable="'lu.class'">{{item.lu.class}}</td>
+
+
+    <td data-title="'num'" sortable="'num_men'">{{item.num_men}}</td>
+    <td data-title="'recruit cost'" sortable="'recruitment_cost'"
+      graph min="0" max="1500" value="item.recruitment_cost" color="#dda">
+      {{item.recruitment_cost}}
+    </td>
+
+    <td data-title="'upkeep cost'" sortable="'upkeep_cost'"
+      graph min="0" max="400" value="item.upkeep_cost" color="#dda">
+      {{item.upkeep_cost}}
+    </td>
+
+
+
+
+      <td data-title="'armour total'" sortable="'armourTotal'" class="col-armour"
+        graph min="0" max="115" value="item.armourTotal" color="#99b">
+        {{item.armourTotal}}
+      </td>
+
+        <td data-title="'base armour'" sortable="'armourType.armour_value'" class="col-armour-sub"
+          graph min="0" max="115" value="item.armourType.armour_value" color="#bbd">
+          <span class="pull-right" armour-icon armour="item.armourType"></span>
+          <span>{{item.armourType.armour_value}}</span>
+        </td>
+  <!--
+        <td data-title="'name'" sortable="'armourType.key'" class="col-armour" ng-show="column.armour">
+          {{item.armourType.key}}
+        </td>
+        <td data-title="'bonus missile'" sortable="'armourType.bonus_vs_missiles'"
+          graph min="0" max="1" value="item.armourType.bonus_vs_missiles" color="#99d" class="col-armour" ng-show="column.armour">
+          {{item.armourType.bonus_vs_missiles}}
+        </td>
+        <td data-title="'weak missile'" sortable="'armourType.weak_v_missiles'"
+          graph min="0" max="1" value="item.armourType.weak_v_missiles" color="#99d" class="col-armour" ng-show="column.armour">
+          {{item.armourType.weak_v_missiles}}
+        </td>
+  -->
+        <td data-title="'shield armour'" sortable="'shieldType.shield_armour_value'"
+          graph min="0" max="115" value="item.shieldType.shield_armour_value" color="#bbd" class="col-armour-sub">
+          <span class="pull-right" shield-icon shield="item.shieldType"></span>
+          {{item.shieldType.shield_armour_value}}
+        </td>
+
+      <td data-title="'defence total'" sortable="'defenceTotal'"
+        graph min="0" max="81" value="item.defenceTotal" color="#9c9" class="col-defence">
+        {{item.defenceTotal}}
+      </td>
+
+        <td data-title="'base defence'" sortable="'lu.melee_defence'"
+          graph min="0" max="81" value="item.lu.melee_defence" color="#beb" class="col-defence-sub">
+          {{item.lu.melee_defence}}
+        </td>
+        <td data-title="'shield defence'" sortable="'shieldType.shield_defence_value'"
+          graph min="0" max="81" value="item.shieldType.shield_defence_value" color="#beb" class="col-defence-sub">
+          {{item.shieldType.shield_defence_value}}
+        </td>
+
+      <td data-title="'weapon total'" sortable="'weaponTotal'"
+        graph min="0" max="60" value="item.weaponTotal" color="#f99" class="col-weapon">
+          <span class="pull-right" weapon-icon weapon="item.weaponType"></span>
+        {{item.weaponTotal}}
+      </td>
+        <td data-title="'weapon damage'" sortable="'weaponType.damage'"
+          graph min="0" max="60" value="item.weaponType.damage" color="#fcc" class="col-weapon-sub">
+          {{item.weaponType.damage}}
+        </td>
+        <td data-title="'weapon ap'" sortable="'weaponType.ap_damage'"
+          graph min="0" max="60" value="item.weaponType.ap_damage" color="#fcc" class="col-weapon-sub">
+          {{item.weaponType.ap_damage}}
+        </td>
+
+      <td data-title="'attack'" sortable="'lu.melee_attack'"
+        graph min="0" max="80" value="item.lu.melee_attack" color="#dd9" class="col-attack">
+        {{item.lu.melee_attack}}
+      </td>
+      <td data-title="'charge'" sortable="'lu.charge_bonus'"
+        graph min="0" max="80" value="item.lu.charge_bonus" color="#dd9" class="col-attack">
+        {{item.lu.charge_bonus}}
+      </td>
+
+      <td data-title="'missile_weapon'" sortable="'lu.primary_missile_weapon'">{{item.lu.primary_missile_weapon}}</td>
+      <td data-title="'accuracy'" sortable="'lu.accuracy'">{{item.lu.accuracy}}</td>
+      <td data-title="'ammo'" sortable="'lu.ammo'">{{item.lu.ammo}}</td>
+      <td data-title="'reload'" sortable="'lu.reload'">{{item.lu.reload}}</td>
+
+
+      <td data-title="'morale'" sortable="'lu.morale'"
+        graph min="0" max="90" value="item.lu.morale" color="#ada">
+        {{item.lu.morale}}
+      </td>
+
+      <td data-title="'health total'" sortable="'healthTotal'">{{item.healthTotal}}</td>
+        <td data-title="'man health'" sortable="'lu.man_entity'">{{item.lu.man_entity}}</td>
+        <td data-title="'mount health'" sortable="'lu.mount'">{{item.lu.mount}}</td>
+        <td data-title="'bonus health'" sortable="'lu.bonus_hit_points'">{{item.lu.bonus_hit_points}}</td>
+
+
+
+<!--
+      <td data-title="'d_charge'" sortable="'lu.dismounted_charge_bonus'">{{item.lu.dismounted_charge_bonus}}</td>
+      <td data-title="'d_attack'" sortable="'lu.dismounted_melee_attack'">{{item.lu.dismounted_melee_attack}}</td>
+      <td data-title="'d_defence'" sortable="'lu.dismounted_melee_defence'">{{item.lu.dismounted_melee_defence}}</td>
+-->
+
+  </tr>
+</table>

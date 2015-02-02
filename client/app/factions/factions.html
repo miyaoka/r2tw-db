@@ -1,18 +1,56 @@
 <div class="col-md-12">
-  <h3><a ui-sref="main.factions">Faction List</a></h3>
-  {{$state.current.name}}/
-  filter: campain
-  <input ng-model="fil" />
+  <h3>
+    <div class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
+      <i ng-hide="isCollapsed" class="fa fa-caret-down fa-lg"></i>
+      <i ng-show="isCollapsed" class="fa fa-caret-right fa-lg"></i>
+    </div>
+    <a ui-sref="main.factions">Faction List</a> ({{factionsTable.total()}})
+  </h3>
 
-  <div ng-show="$state.is('main.factions')">
-    <table ng-table="factionsTable" class="table">
+  <div collapse="isCollapsed">
+
+    <form class="form-inline">
+      <div class="form-group">
+        <select class="form-control" ng-model="filter.key" ng-options="c.key as c.label for c in campains">
+        <option value="">- All Campain -</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="filter.screenName" placeholder="screen name">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="filter.militaryGroup" placeholder="military group">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="filter.subculture" placeholder="subculture">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="filter.diplomacyCulture" placeholder="diplomacy culture">
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="filter.showRebel"/>
+          show rebel
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="filter.showCivilWar"/>
+          show CivilWar
+        </label>
+      </div>
+    </form>
+
+    <table ng-table="factionsTable" class="table" >
       <tr ng-repeat="item in $data">
-        <td data-title="'key'" sortable="'key'"><a ui-sref=".detail({id:item._id})">{{item.key}}</a></td>
-        <td data-title="'screen_name'" sortable="'screen_name'">{{item.screen_name}}</td>
-        <td data-title="'military_group'" sortable="'military_group'">{{item.military_group}}</td>
-        <td data-title="'subculture'" sortable="'subculture'">{{item.subculture}}</td>
-        <td data-title="'diplomacy_culture'" sortable="'diplomacy_culture'">{{item.diplomacy_culture}}</td>
-        <td data-title="'is_rebel'" sortable="'is_rebel'">{{item.is_rebel}}</td>
+        <td data-title="'key'" sortable="'key'" ><a ui-sref=".detail({id:item._id})">{{item.key}}</a></td>
+        <td data-title="'screen_name'" sortable="'screen_name'" >{{item.screen_name}}</td>
+        <td data-title="'military_group'" sortable="'military_group'" >{{item.military_group}}</td>
+        <td data-title="'subculture'" sortable="'subculture'" >{{item.subculture}}</td>
+        <td data-title="'diplomacy_culture'" sortable="'diplomacy_culture'" >{{item.diplomacy_culture}}</td>
+        <!--
+        <td data-title="'is_rebel'" sortable="'is_rebel'" >{{item.is_rebel}}</td>
+        -->
       </tr>
     </table>
   </div>

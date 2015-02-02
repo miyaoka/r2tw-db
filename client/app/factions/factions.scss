@@ -1,0 +1,51 @@
+#main-units{
+  border-spacing: 1px;
+  border-collapse: separate;
+  tbody tr td,
+  thead tr th{
+    font-size: 90%;
+    padding: 0px;
+    margin: 0px;
+    max-width: 80px;
+    min-width: 80px;
+    overflow: hidden
+  }
+  tbody tr td.main-unit{
+    max-width: 300px;
+//    padding-left: 4px
+  }
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    margin-right:4px;
+}
+.graph{
+//    width: 100%;
+//    height: 50%;
+    padding-left: 4px;
+    margin: 0px;
+}
+
+.col-armour{
+  background-color: #eef;
+}
+.col-armour-sub{
+  background-color: #eef;
+}
+.col-defence{
+  background-color: #efe;
+}
+.col-defence-sub{
+  background-color: #efe;
+}
+.col-weapon{
+  background-color: #fee;
+}
+.col-weapon-sub{
+  background-color: #fee;
+}
+.col-attack{
+  background-color: #ffd;
+}

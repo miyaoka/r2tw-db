@@ -17,9 +17,13 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 // injector
+@import 'armour-icon/armour-icon.scss';
 @import 'factions/factions.scss';
+@import 'graph/graph.scss';
 @import 'land_units/land_units.scss';
 @import 'main/main.scss';
 @import 'main_units/main_units.scss';
+@import 'shield-icon/shield-icon.scss';
+@import 'weapon-icon/weapon-icon.scss';
 @import 'modal/modal.scss';
 // endinjector

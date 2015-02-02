@@ -4,23 +4,13 @@ angular.module('twdbApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main.factions', {
-        url: '/factions',
+        url: '/factions?key&screenName&militaryGroup&subculture&diplomacyCulture&showRebel&showCivilWar',
         templateUrl: 'app/factions/factions.html',
-        controller: 'FactionsCtrl',
-        resolve:{
-          isList: function(){
-            return false;
-          }
-        }
+        controller: 'FactionsCtrl'
       })
       .state('main.factions.detail', {
         url: '/:id',
         templateUrl: 'app/factions/factions.detail.html',
-        controller: 'FactionsDetailCtrl',
-        resolve:{
-          isDetail: function(){
-//            return true;
-          }
-        }
+        controller: 'FactionsDetailCtrl'
       });
   });
