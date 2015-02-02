@@ -4,6 +4,7 @@ angular.module('twdbApp')
   .factory('Api', function ($resource) {
     return {
       mainUnits: $resource('/api/main_units/:id', {id: '@id'}),
-      landUnits: $resource('/api/land_units/:id', {id: '@id'})
+      landUnits: $resource('/api/land_units/:id', {id: '@id'}),
+      factions: $resource('/api/factions/:id', {id: '@id'})
     };
   });

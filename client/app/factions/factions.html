@@ -1,0 +1,22 @@
+<div class="col-md-12">
+  <h3><a ui-sref="main.factions">Faction List</a></h3>
+  {{$state.current.name}}/
+  filter: campain
+  <input ng-model="fil" />
+
+  <div ng-show="$state.is('main.factions')">
+    <table ng-table="factionsTable" class="table">
+      <tr ng-repeat="item in $data">
+        <td data-title="'key'" sortable="'key'"><a ui-sref=".detail({id:item._id})">{{item.key}}</a></td>
+        <td data-title="'screen_name'" sortable="'screen_name'">{{item.screen_name}}</td>
+        <td data-title="'military_group'" sortable="'military_group'">{{item.military_group}}</td>
+        <td data-title="'subculture'" sortable="'subculture'">{{item.subculture}}</td>
+        <td data-title="'diplomacy_culture'" sortable="'diplomacy_culture'">{{item.diplomacy_culture}}</td>
+        <td data-title="'is_rebel'" sortable="'is_rebel'">{{item.is_rebel}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div ui-view></div>
+
+</div>

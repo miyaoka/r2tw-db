@@ -1,5 +1,6 @@
 <div class="col-md-12">
   <h1 class="page-header">MainUnits:{{mainUnitsTable.total()}}</h1>
+  filter: militaly_group
   <table ng-table="mainUnitsTable" class="table">
     <tr ng-repeat="item in $data">
       <td data-title="'main_unit'" sortable="'unit'"><a ui-sref="^.detail({id:item._id})">{{item.unit}}</td>

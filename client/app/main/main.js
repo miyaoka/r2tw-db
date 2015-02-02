@@ -4,8 +4,13 @@ angular.module('twdbApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {
-        url: '/',
+        abstract: true,
+        url: '',
         templateUrl: 'app/main/main.html',
+      })
+      .state('main.home', {
+        url: '/',
+        template: 'home',
         controller: 'MainCtrl'
       });
   });
