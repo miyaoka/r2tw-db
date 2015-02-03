@@ -17,7 +17,7 @@ angular.module('twdbApp')
       link: function (scope, element, attrs) {
         scope.icon = icons[scope.shield.audio_material];
 
-        var tooptips = ['[ ' + scope.shield.key + ' ]'];
+        var tooptips = [scope.shield.key, '--------'];
         'shield_armour_value shield_defence_value audio_material'.split(' ').forEach(function(key){
           tooptips.push(key + ': ' + scope.shield[key]);
         });

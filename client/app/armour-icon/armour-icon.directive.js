@@ -19,7 +19,7 @@ angular.module('twdbApp')
       link: function (scope, element, attrs) {
         scope.icon = icons[scope.armour.audio_material];
 
-        var tooptips = ['[ ' + scope.armour.key + ' ]'];
+        var tooptips = [ scope.armour.key, '--------'];
         'armour_value bonus_vs_missiles weak_v_missiles audio_material'.split(' ').forEach(function(key){
           tooptips.push(key + ': ' + scope.armour[key]);
         });
