@@ -42,7 +42,7 @@
     </div>
   </form>
 
-  <h4><a href="#" tooltip-placement="left" tooltip="tip">columns detail</a></h4>
+  <h4>columns detail</h4>
   <form class="form-inline">
     <div class="checkbox">
       <label>
@@ -82,16 +82,18 @@
 
 
 
-      <td data-title="'armour total'" sortable="'armourTotal'" class="col-armour"
+      <td data-title="'armour [cloth + shield]'" sortable="'armourTotal'" class="col-armour"
         graph min="0" max="115" value="item.armourTotal" color="#99b">
+        <span class="pull-right" armour-icon armour="item.armourType"></span>
         {{item.armourTotal}}
       </td>
+      <!--
 
         <td data-title="'base armour'" sortable="'armourType.armour_value'" class="col-armour-sub"
           graph min="0" max="115" value="item.armourType.armour_value" color="#bbd">
-          <span class="pull-right" armour-icon armour="item.armourType"></span>
           <span>{{item.armourType.armour_value}}</span>
         </td>
+        -->
   <!--
         <td data-title="'name'" sortable="'armourType.key'" class="col-armour" ng-show="column.armour">
           {{item.armourType.key}}
@@ -105,17 +107,21 @@
           {{item.armourType.weak_v_missiles}}
         </td>
   -->
+  <!--
         <td data-title="'shield armour'" sortable="'shieldType.shield_armour_value'"
           graph min="0" max="115" value="item.shieldType.shield_armour_value" color="#bbd" class="col-armour-sub">
-          <span class="pull-right" shield-icon shield="item.shieldType"></span>
           {{item.shieldType.shield_armour_value}}
         </td>
+-->
+      <td data-title="'defence [skill + shield]'" sortable="'defenceTotal'"
+        graph min="0" max="85" value="item.defenceTotal" color="#9c9" class="col-defence">
 
-      <td data-title="'defence total'" sortable="'defenceTotal'"
-        graph min="0" max="81" value="item.defenceTotal" color="#9c9" class="col-defence">
+        <span class="pull-right" shield-icon shield="item.shieldType"></span>
+
         {{item.defenceTotal}}
       </td>
 
+<!--
         <td data-title="'base defence'" sortable="'lu.melee_defence'"
           graph min="0" max="81" value="item.lu.melee_defence" color="#beb" class="col-defence-sub">
           {{item.lu.melee_defence}}
@@ -124,12 +130,13 @@
           graph min="0" max="81" value="item.shieldType.shield_defence_value" color="#beb" class="col-defence-sub">
           {{item.shieldType.shield_defence_value}}
         </td>
-
-      <td data-title="'weapon total'" sortable="'weaponTotal'"
+-->
+      <td data-title="'weapon [base+ap]'" sortable="'weaponTotal'"
         graph min="0" max="60" value="item.weaponTotal" color="#f99" class="col-weapon">
           <span class="pull-right" weapon-icon weapon="item.weaponType"></span>
         {{item.weaponTotal}}
       </td>
+      <!--
         <td data-title="'weapon damage'" sortable="'weaponType.damage'"
           graph min="0" max="60" value="item.weaponType.damage" color="#fcc" class="col-weapon-sub">
           {{item.weaponType.damage}}
@@ -138,7 +145,7 @@
           graph min="0" max="60" value="item.weaponType.ap_damage" color="#fcc" class="col-weapon-sub">
           {{item.weaponType.ap_damage}}
         </td>
-
+-->
       <td data-title="'attack'" sortable="'lu.melee_attack'"
         graph min="0" max="80" value="item.lu.melee_attack" color="#dd9" class="col-attack">
         {{item.lu.melee_attack}}

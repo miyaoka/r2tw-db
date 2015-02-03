@@ -37,6 +37,11 @@ angular.module('twdbApp')
       }
 
     });
+    /*
+    $scope.unitsTable.settings({
+      groupBy : 'category'
+    });
+*/
     $scope.unitsTable.settings().$scope = $scope;
 
    //apply filter when filter input changed
