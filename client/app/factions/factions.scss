@@ -1,8 +1,9 @@
 Table.main-units{
-  border-spacing: 4px 1px;
-  border-collapse: separate;
+//  border-spacing: 4px 1px;
+//  border-collapse: separate;
 //  border-collapse: collapse;
 //  border: 1px solid #000;
+  font-size: 1.0em;
 
   tbody tr td,
   thead tr th{
@@ -16,9 +17,13 @@ Table.main-units{
       text-align: left;
       word-break: break-all;
     }
+    border: 1px solid #999;
+
   }
 
   thead {
+    background-color: #488;
+    color: #fff;
     tr {
       th.sortable div:after,
       th.sortable div:before{
@@ -29,7 +34,7 @@ Table.main-units{
     //    background-color: #eee;
         line-height: 1.1;
         font-weight: normal;
-    //    padding: 4px 0px;
+        padding: 4px;
 //        padding-bottom: 10px;
       }
     }
@@ -40,14 +45,15 @@ Table.main-units{
 //        background-color: #34B0EB;
 //        background-color: #428bca;
 //        color: #fff;
-        background-color: rgba(0,0,0,.05);
-        cursor: pointer;
+//        border: 2px solid #000;
+      background-color: rgba(0,100,200,.1);
+      cursor: pointer;
     }
     tr {
       td{
         vertical-align: top;
-        border-top: 1px solid #ddd;
-//        padding-left: 4px;
+//        border-top: 1px solid #ddd;
+        padding-left: 4px;
       }
       td.main-unit{
         min-width: 100px;
@@ -58,7 +64,8 @@ Table.main-units{
     }
     tr.ng-table-group td{
     //    padding: 0px 0px 4px 0px;
-      padding: 10px 0px;
+      font-size: 1.3em;
+      padding: 6px 0px;
       color: #666;
       border-top: 1px solid #000;
   //    background-color: #999;
@@ -74,10 +81,10 @@ Table.main-units{
 .bg-graph{
 //width: 100px;
 //    padding-left: 4px;
-    margin: 0px;
     height: 20px;
     padding: 0px 4px;
-//    margin: 0px 2px 2px -4px;
+
+    margin: 1px 0px 1px -4px;
 }
 
 .col-armour{

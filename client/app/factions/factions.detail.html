@@ -1,8 +1,8 @@
 <h3>Faction: {{faction.screen_name}}</h3>
 <h4>military_group: {{faction.military_group}} ({{unitsTable.total()}})</h4>
-<div class="well">
+<div class="well well-sm">
 
-  <h4>unit types</h4>
+  <h5>show option</h5>
   <form class="form-inline">
     <div class="checkbox">
       <label>
@@ -40,32 +40,16 @@
         naval
       </label>
     </div>
-  </form>
-
-  <h4>columns detail</h4>
-  <form class="form-inline">
     <div class="checkbox">
       <label>
         <input type="checkbox" ng-model="group"/>
         show by group
       </label>
     </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="column.armour"/>
-        armour
-      </label>
-    </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="column.weapon"/>
-        weapon
-      </label>
-    </div>
   </form>
 </div>
 
-<table ng-table="unitsTable" class="main-units">
+<table ng-table="unitsTable" class="main-units" data-fixed-table-headers>
 
 <tbody ng-repeat="group in $groups">
   <tr class="ng-table-group" >
@@ -110,7 +94,7 @@
     </td>
 
 
-<!-melee-->
+<!--melee-->
 
 
       <td data-title="'melee defence [skill + shield]'" sortable="'defenceTotal'" class="col-melee">

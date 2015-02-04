@@ -49,6 +49,9 @@ angular.module('twdbApp')
           })
         });
         return units;
+      },
+      byFaction: function(faction){
+
       }
     };
 
