@@ -50,8 +50,10 @@ Table.main-units{
 //        padding-left: 4px;
       }
       td.main-unit{
+        min-width: 100px;
         max-width: 300px;
-      //    padding-left: 4px
+        padding-right: 10px;
+        white-space: nowrap;
       }
     }
     tr.ng-table-group td{
@@ -98,4 +100,7 @@ Table.main-units{
 }
 .col-attack{
   background-color: #ffd;
+}
+.col-melee{
+  background-color: #ffffe0;
 }

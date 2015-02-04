@@ -44,6 +44,7 @@
     <table ng-table="factionsTable" class="table" >
       <tr ng-repeat="item in $data">
         <td data-title="'key'" sortable="'key'" ><a ui-sref=".detail({id:item._id})">{{item.key}}</a></td>
+        <td data-title="'loc.key'" sortable="'loc.key'" >{{item.loc.key}}</td>
         <td data-title="'screen_name'" sortable="'screen_name'" >{{item.screen_name}}</td>
         <td data-title="'military_group'" sortable="'military_group'" >{{item.military_group}}</td>
         <td data-title="'subculture'" sortable="'subculture'" >{{item.subculture}}</td>

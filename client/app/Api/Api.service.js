@@ -9,6 +9,8 @@ angular.module('twdbApp')
       unitsToGroupingsMilitaryPermissions: $resource('/api/units_to_groupings_military_permissions'),
       meleeWeapons: $resource('/api/melee_weapons'),
       unitArmourTypes: $resource('/api/unit_armour_types'),
-      unitShieldTypes: $resource('/api/unit_shield_types')
+      unitShieldTypes: $resource('/api/unit_shield_types'),
+      locLandUnits: $resource('/api/loc_land_units'),
+      locFactions: $resource('/api/loc_factions')
     };
   });

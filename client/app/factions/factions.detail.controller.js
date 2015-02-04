@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('twdbApp')
-  .controller('FactionsDetailCtrl', function ($scope, $stateParams, Factions, MainUnits, TableFactory) {
+  .controller('FactionsDetailCtrl', function ($scope, $stateParams, Factions, MainUnits, TableFactory, LocLandUnits) {
     console.log("factions.detail", $stateParams.id);
 
+    $scope.locLandUnits = LocLandUnits;
+    console.table($scope.locLandUnits.dict);
     $scope.group = true;
 
     $scope.filter = {

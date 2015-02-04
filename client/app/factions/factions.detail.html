@@ -78,8 +78,14 @@
     </td>
   </tr>
   <tr ng-hide="group.$hideRows" ng-repeat="item in group.data">
-    <td data-title="'main unit'" sortable="'unit'" class="main-unit"><a ui-sref="^.detail({id:item._id})" >{{item.unit}}</a></td>
-    <td data-title="'land unit'" sortable="'land_unit'">{{item.land_unit}}</td>
+    <td data-title="'land unit'" sortable="'loc.landUnit'" class="main-unit">
+      <span
+        tooltip-placement="right"
+        tooltip-html-unsafe="{{item.unit}}<br>------<br>land: {{item.land_unit}}<br>naval: {{item.naval_unit}}"
+      >
+        {{item.loc.landUnit}}
+      </span>
+    </td>
 
       <td data-title="'category'" sortable="'lu.category'">{{item.lu.category}}</td>
       <td data-title="'class'" sortable="'lu.class'">{{item.lu.class}}</td>
@@ -87,7 +93,7 @@
 
 
     <td data-title="'num men'" sortable="'num_men'">
-      <bg-graph min="0" max="160" items="[{value: item.num_men, color:'#eee'}]">
+      <bg-graph min="0" max="160" items="[{value: item.num_men, color:'#eed'}]">
         {{item.num_men}}
       </bg-graph>
     </td>
@@ -107,7 +113,7 @@
 <!-melee-->
 
 
-      <td data-title="'melee defence [skill + shield]'" sortable="'defenceTotal'" class="col-defence">
+      <td data-title="'melee defence [skill + shield]'" sortable="'defenceTotal'" class="col-melee">
 
         <bg-graph min="0" max="85" items="[
           {value: item.lu.melee_defence, color:'#6b6'},
@@ -130,14 +136,14 @@
         </td>
 -->
 
-      <td data-title="'melee attack'" sortable="'lu.melee_attack'"class="col-attack">
+      <td data-title="'melee attack'" sortable="'lu.melee_attack'"class="col-melee">
         <bg-graph min="0" max="80" items="[
           {value: item.lu.melee_attack, color:'#dd9'}
         ]">
           {{item.lu.melee_attack}}
         </bg-graph>
       </td>
-      <td data-title="'charge bonus'" sortable="'lu.charge_bonus'" class="col-attack">
+      <td data-title="'charge bonus'" sortable="'lu.charge_bonus'" class="col-melee">
         <bg-graph min="0" max="80" items="[
           {value: item.lu.charge_bonus, color:'#dd9'}
         ]">
@@ -145,7 +151,7 @@
         </bg-graph>
       </td>
 
-      <td data-title="'weapon length'" sortable="'weaponType.weapon_length'" class="col-attack">
+      <td data-title="'weapon length'" sortable="'weaponType.weapon_length'" class="col-melee">
         <bg-graph min="0" max="5" items="[
           {value: item.weaponType.weapon_length, color:'#dd9'}
         ]">
@@ -153,7 +159,7 @@
         </bg-graph>
       </td>
 
-      <td data-title="'weapon damage [ap+base] (+vs_bonus)'" sortable="'weaponTotal'" class="col-weapon">
+      <td data-title="'weapon damage [ap+base] (+vs_bonus)'" sortable="'weaponTotal'" class="col-melee">
 
         <bg-graph min="0" max="60" items="[
           {value: item.weaponType.ap_damage, color:'#c66'},

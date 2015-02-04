@@ -9,6 +9,8 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
+  app.use('/api/loc_factions', require('./api/loc_faction'));
+  app.use('/api/loc_land_units', require('./api/loc_land_unit'));
   app.use('/api/unit_shield_types', require('./api/unit_shield_type'));
   app.use('/api/unit_armour_types', require('./api/unit_armour_type'));
   app.use('/api/melee_weapons', require('./api/melee_weapon'));
@@ -17,7 +19,7 @@ module.exports = function(app) {
   app.use('/api/land_units', require('./api/land_unit'));
   app.use('/api/main_units', require('./api/main_unit'));
   app.use('/api/things', require('./api/thing'));
-  
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);

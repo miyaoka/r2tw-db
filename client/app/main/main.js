@@ -8,6 +8,13 @@ angular.module('twdbApp')
         url: '',
         templateUrl: 'app/main/main.html',
         resolve:{
+          locLandUnits: function(LocLandUnits){
+            return LocLandUnits.get().$promise;
+          },
+          locFactions: function(LocFactions){
+            console.log(LocFactions);
+            return LocFactions.get().$promise;
+          },
           factions: function(Factions){
             return Factions.get().$promise;
           },
@@ -23,11 +30,11 @@ angular.module('twdbApp')
           unitShieldTypes: function(UnitShieldTypes){
             return UnitShieldTypes.get().$promise;
           },
-          mainUnits: function(MainUnits){
-            return MainUnits.get().$promise;
-          },
           landUnits: function(LandUnits){
             return LandUnits.get().$promise;
+          },
+          mainUnits: function(MainUnits){
+            return MainUnits.get().$promise;
           }
         }
       })

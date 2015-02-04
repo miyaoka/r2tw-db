@@ -1,14 +1,20 @@
 'use strict';
 
 angular.module('twdbApp')
-  .factory('Factions', function ($rootScope, Api) {
+  .factory('Factions', function (Api, LocFactions) {
     var _list = [];
 
 
     var Factions = {
       get: function(){
         return Api.factions.query(function(res) {
-          _list = res;
+          _list = res.map(function(item){
+            console.log(item);
+            item.loc = {
+              key : LocFactions.loc(item.key)
+            }
+            return item;
+          })
         });
       },
       get list() {
