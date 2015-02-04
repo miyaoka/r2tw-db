@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('twdbApp')
-  .directive('shieldIcon', function () {
+  .directive('iconShield', function () {
     var icons = {
       'body': 'null.png',
       'wicker': 'E_Wood01.png',
@@ -9,8 +9,9 @@ angular.module('twdbApp')
       'bronze': 'E_Metal01.png'
     };
     return {
-      template: '<div ng-include="templateUrl()"></div>',
-      restrict: 'EA',
+      templateUrl: 'app/icon-shield/icon-shield.html',
+      restrict: 'E',
+      replace: true,
       scope: {
         'shield' : '='
       },
@@ -22,10 +23,6 @@ angular.module('twdbApp')
           tooptips.push(key + ': ' + scope.shield[key]);
         });
         scope.htmlTooltip = tooptips.join('<br>');
-
-        scope.templateUrl = function(){
-          return scope.icon ? 'app/shield-icon/shield-icon.html' : null
-        }
       }
     };
   });

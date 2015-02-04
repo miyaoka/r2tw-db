@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Directive: shieldIcon', function () {
+describe('Directive: bgGraph', function () {
 
   // load the directive's module and view
   beforeEach(module('twdbApp'));
-  beforeEach(module('app/shield-icon/shield-icon.html'));
+  beforeEach(module('app/bg-graph/bg-graph.html'));
 
   var element, scope;
 
@@ -13,9 +13,9 @@ describe('Directive: shieldIcon', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<shield-icon></shield-icon>');
+    element = angular.element('<bg-graph></bg-graph>');
     element = $compile(element)(scope);
     scope.$apply();
-    expect(element.text()).toBe('this is the shieldIcon directive');
+    expect(element.text()).toBe('this is the bgGraph directive');
   }));
 });

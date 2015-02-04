@@ -33,7 +33,7 @@ angular.module('twdbApp')
         var units = [];
         _list.forEach(function(unit){
           unitKeys.some(function(unitKey){
-            if(unit.unit === unitKey){
+//            if(unit.unit === unitKey){
               unit.lu = LandUnits.byKey(unit.land_unit);
               unit.weaponType = MeleeWeapons.byKey(unit.lu.primary_melee_weapon);
               unit.armourType= UnitArmourTypes.byKey(unit.lu.armour);
@@ -44,7 +44,7 @@ angular.module('twdbApp')
               unit.weaponTotal = unit.weaponType.damage + unit.weaponType.ap_damage;
               units.push(unit);
               return true;
-            }
+  //          }
           })
         });
         return units;

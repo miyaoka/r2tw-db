@@ -6,7 +6,14 @@ angular.module('twdbApp')
     var Obj = {
       get: function(){
         return Api.meleeWeapons.query(function(res) {
-          _list = res;
+          _list = res.map(function(item){
+            item.maxBonus = Math.max(
+              item.bonus_v_cavalry,
+              item.bonus_v_elephants,
+              item.bonus_v_infantry
+            );
+            return item;
+          });
         });
       },
       get list() {

@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Directive: armourIcon', function () {
+describe('Directive: iconArmour', function () {
 
   // load the directive's module and view
   beforeEach(module('twdbApp'));
-  beforeEach(module('app/armour-icon/armour-icon.html'));
+  beforeEach(module('app/icon-armour/icon-armour.html'));
 
   var element, scope;
 
@@ -13,9 +13,9 @@ describe('Directive: armourIcon', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<armour-icon></armour-icon>');
+    element = angular.element('<icon-armour></icon-armour>');
     element = $compile(element)(scope);
     scope.$apply();
-    expect(element.text()).toBe('this is the armourIcon directive');
+    expect(element.text()).toBe('this is the iconArmour directive');
   }));
 });

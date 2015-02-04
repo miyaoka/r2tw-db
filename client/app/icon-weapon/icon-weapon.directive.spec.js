@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Directive: graph', function () {
+describe('Directive: iconWeapon', function () {
 
   // load the directive's module and view
   beforeEach(module('twdbApp'));
-  beforeEach(module('app/graph/graph.html'));
+  beforeEach(module('app/icon-weapon/icon-weapon.html'));
 
   var element, scope;
 
@@ -13,9 +13,9 @@ describe('Directive: graph', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<graph></graph>');
+    element = angular.element('<icon-weapon></icon-weapon>');
     element = $compile(element)(scope);
     scope.$apply();
-    expect(element.text()).toBe('this is the graph directive');
+    expect(element.text()).toBe('this is the iconWeapon directive');
   }));
 });

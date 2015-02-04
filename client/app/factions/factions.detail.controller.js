@@ -4,6 +4,7 @@ angular.module('twdbApp')
   .controller('FactionsDetailCtrl', function ($scope, $stateParams, Factions, MainUnits, TableFactory) {
     console.log("factions.detail", $stateParams.id);
 
+    $scope.group = true;
 
     $scope.filter = {
       inf_ranged: true,
@@ -37,23 +38,31 @@ angular.module('twdbApp')
       }
 
     });
-    /*
     $scope.unitsTable.settings({
-      groupBy : 'category'
+      groupBy: function(item){
+        return $scope.group ? item.lu.class : 'all';
+      }
     });
-*/
     $scope.unitsTable.settings().$scope = $scope;
+
+    function reloadTable(){
+      $scope.unitsTable.reload();
+      $scope.unitsTable.page(1);
+    }
 
    //apply filter when filter input changed
     for(var filterKey in $scope.filter){
       $scope.$watch("filter." + filterKey, function(val){
-        $scope.unitsTable.reload();
-        $scope.unitsTable.page(1);
+        reloadTable();
       });
     }
 
-      $scope.faction = Factions.byId($stateParams.id);
-      if($scope.faction){
-        $scope.unitsTable.setItems( MainUnits.byMg($scope.faction.military_group));
-      }
+    $scope.$watch("group", function(val){
+      reloadTable();
+    });
+
+    $scope.faction = Factions.byId($stateParams.id);
+    if($scope.faction){
+      $scope.unitsTable.setItems( MainUnits.byMg($scope.faction.military_group));
+    }
   });
